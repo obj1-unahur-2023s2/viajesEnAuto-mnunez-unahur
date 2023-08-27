@@ -1,0 +1,18 @@
+import agencia.*
+import clientas.*
+import remiseras.*
+
+test "Despacha a la remisera correcta" {
+	agencia.asignarRemiseras(roxana, juana)
+
+	// Para Ana Maria en un viaje de 10km la elegida es juana
+	assert.equals(juana, agencia.remiseraElegidaParaViaje(anaMaria, 10))
+
+	// Para Teresa en un viaje de 10km la elegida es Roxana
+	assert.equals(roxana, agencia.remiseraElegidaParaViaje(teresa, 10))
+
+	// Para Teresa en un viaje de 4km la elegida es Roxana
+	assert.equals(roxana, agencia.remiseraElegidaParaViaje(teresa, 4))
+
+
+}
