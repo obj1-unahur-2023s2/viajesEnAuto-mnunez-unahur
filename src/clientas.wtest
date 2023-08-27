@@ -1,0 +1,33 @@
+import clientas.*
+
+// Pruebas para la clienta ludmila
+test "Ludmila - Precio por kilometro debe ser = 18" {
+
+	assert.equals(18, ludmila.precioPorKilometro())
+
+}
+
+
+
+// Pruebas para la clienta ana Maria
+test "Ana Maria - Precio por kilometro debe variar segun estabilidad economica" {
+
+	anaMaria.marcarComoEconomicaEstable()
+	assert.equals(30, anaMaria.precioPorKilometro())
+
+	anaMaria.marcarComoEconomicaInestable()
+	assert.equals(25, anaMaria.precioPorKilometro())
+
+}
+
+
+// Pruebas para la clienta ludmila
+test "Teresa - Precio por kilometro inicial debe ser = 22" {
+
+	assert.equals(22, teresa.precioPorKilometro())
+
+}
+
+
+
+
