@@ -1,7 +1,7 @@
 import remiseras.*
 import clientas.*
 
-test "cobra corectamente un viaje de 10km" {
+test "Roxana cobra corectamente un viaje de 10km" {
 	const kms = 10
 	anaMaria.marcarComoEconomicaEstable()
 	
@@ -11,13 +11,23 @@ test "cobra corectamente un viaje de 10km" {
 	assert.equals(300, roxana.precioViaje(anaMaria, kms))
 	// Roxana a Teresa deberia cobrar 220 pe
 	assert.equals(220, roxana.precioViaje(teresa, kms))
-	
+}
+
+test "Gabriela cobra corectamente un viaje de 10km" {
+	const kms = 10
+	anaMaria.marcarComoEconomicaEstable()
+
 	// Gabriela a ludmila deberia cobrar 216 pe
 	assert.equals(216, gabriela.precioViaje(ludmila, kms))
 	// Gabriela a Ana María deberia cobrar 360 pe
 	assert.equals(360, gabriela.precioViaje(anaMaria, kms))
 	// Gabriela a Teresa deberia cobrar 264 pe
 	assert.equals(264, gabriela.precioViaje(teresa, kms))
+}
+
+test "Mariela cobra corectamente un viaje de 10km" {
+	const kms = 10
+	anaMaria.marcarComoEconomicaEstable()
 
 	// Mariela a ludmila deberia cobrar 180 pe
 	assert.equals(180, mariela.precioViaje(ludmila, kms))
@@ -25,6 +35,11 @@ test "cobra corectamente un viaje de 10km" {
 	assert.equals(300, mariela.precioViaje(anaMaria, kms))
 	// Mariela a Teresa deberia cobrar 220 pe
 	assert.equals(220, mariela.precioViaje(teresa, kms))
+}
+
+test "Juana cobra corectamente un viaje de 10km" {
+	const kms = 10
+	anaMaria.marcarComoEconomicaEstable()
 
 	// Juana a ludmila deberia cobrar 200 pe
 	assert.equals(200, juana.precioViaje(ludmila, kms))
@@ -34,8 +49,7 @@ test "cobra corectamente un viaje de 10km" {
 	assert.equals(200, juana.precioViaje(teresa, kms))
 }
 
-
-test "cobra corectamente un viaje de 2km" {
+test "Roxana cobra corectamente un viaje de 2km" {
 	const kms = 2
 	anaMaria.marcarComoEconomicaEstable()
 	
@@ -45,6 +59,11 @@ test "cobra corectamente un viaje de 2km" {
 	assert.equals(60, roxana.precioViaje(anaMaria, kms))
 	// Roxana a Teresa deberia cobrar 44 pe
 	assert.equals(44, roxana.precioViaje(teresa, kms))
+}
+
+test "Gabriela cobra corectamente un viaje de 2km" {
+	const kms = 2
+	anaMaria.marcarComoEconomicaEstable()
 	
 	// Gabriela a ludmila deberia cobrar 43.20 pe
 	assert.equals(43.20, gabriela.precioViaje(ludmila, kms))
@@ -53,20 +72,31 @@ test "cobra corectamente un viaje de 2km" {
 	// Gabriela a Teresa deberia cobrar 52.80 pe
 	assert.equals(52.80, gabriela.precioViaje(teresa, kms))
 
+}
+
+test "Mariela cobra corectamente un viaje de 2km" {
+	const kms = 2
+	anaMaria.marcarComoEconomicaEstable()
+	
 	// Mariela a ludmila deberia cobrar 50 pe
 	assert.equals(50, mariela.precioViaje(ludmila, kms))
 	// Mariela a Ana María deberia cobrar 60 pe
 	assert.equals(60, mariela.precioViaje(anaMaria, kms))
 	// Mariela a Teresa deberia cobrar 50 pe
 	assert.equals(50, mariela.precioViaje(teresa, kms))
+}
 
+test "Juana Mariela cobra corectamente un viaje de 2km" {
+	const kms = 2
+	anaMaria.marcarComoEconomicaEstable()
+	
 	// Juana a cobra a todos100 pe
 	assert.equals(100, juana.precioViaje(ludmila, kms))
 	assert.equals(100, juana.precioViaje(anaMaria, kms))
 	assert.equals(100, juana.precioViaje(teresa, kms))
 }
 
-test "Lucía cobra correctamente a Melina" {
+test "Lucía reemplaza a Mariela y cobra correctamente a Melina trabajando para Ludmila" {
 	
 	// Lucía está reemplazando a Mariela, y Melina está trabajando para Ludmila
 	lucia.reemplazaA(mariela)
@@ -74,11 +104,15 @@ test "Lucía cobra correctamente a Melina" {
 	
 	assert.equals(150, lucia.precioViaje(melina, 10))
 	assert.equals(50, lucia.precioViaje(melina, 1))
+}
 
+test "Lucía reemplaza a Gabriela y cobra correctamente a Melina trabajando para Ludmila" {
 	// Lucía está reemplazando a Gabriela, y Melina está trabajando para Ludmila
 	lucia.reemplazaA(gabriela)
+	melina.trabajaPara(ludmila)
 	
 	assert.equals(180, lucia.precioViaje(melina, 10))
 	assert.equals(18, lucia.precioViaje(melina, 1))
 	
 }
+
